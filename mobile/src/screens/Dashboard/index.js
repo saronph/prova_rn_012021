@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
 
-import api from '../../api';
+// import api from '../../api';
 
 const Dashboard = () => {
   useEffect(() => {
-    async function teste() {
-      const response = await api.get('/test');
+    // async function teste() {
+    //   const response = await api.get('/test');
 
-      console.log('response: ', response);
-    }
+    //   console.log('response: ', response);
+    // }
 
-    teste();
+    // teste();
 
   }, [])
 
