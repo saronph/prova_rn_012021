@@ -2,19 +2,16 @@ const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
- 
+
 server.use(middlewares)
 server.use(jsonServer.bodyParser)
 server.use((req, res, next) => {
-  if (req.originalUrl === '/peso-alvo' && req.method === 'PUT') {
-    const pesoAlvoCollection = router.db.get('peso-alvo').value();
-    req.body.data = pesoAlvoCollection['data'] || Date.now();
-  } else if (req.originalUrl === '/registro' && req.method === 'POST') {
+  if (req.originalUrl === '/registro' && req.method === 'POST') {
     req.body.data = Date.now();
   } else if (req.originalUrl.match(/\/registro\/[0-9].*/) && req.method === 'PUT') {
     const parts = req.originalUrl.split('/');
     const registroCollection = router.db.get('registro').value();
-    const before = registroCollection.find((k) => k.id == parts[parts.length-1]);
+    const before = registroCollection.find((k) => k.id == parts[parts.length - 1]);
     req.body.data = before['data'];
   }
 
