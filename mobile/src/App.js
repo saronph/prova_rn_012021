@@ -1,11 +1,17 @@
-import React from 'react';
+import 'react-native-gesture-handler';
 
-import Dashboard from './screens/Dashboard';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'react-native';
+
+import Routes from './routes';
 
 const App = () => {
-
   return (
-    <Dashboard />
+    <NavigationContainer>
+      <StatusBar backgroundColor="#26C2E4" barStyle="dark-content" />
+      <Routes />
+    </NavigationContainer>
   );
 };
 
